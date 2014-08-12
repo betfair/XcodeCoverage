@@ -33,13 +33,21 @@ exclude_data()
 {
     LCOV --remove ${LCOV_INFO} "Developer/SDKs/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
     LCOV --remove ${LCOV_INFO} "main.m" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "BFSDKTests/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/AFNetworking/AFNetworking/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/CompiledProtoBuffers/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/DKUserDictionary/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/GDataXML/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/JSON/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/MWFeedParser/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+	LCOV --remove ${LCOV_INFO} "Dependencies/UICKeyChainStore/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
     # Remove other patterns here...
 }
 
 generate_report()
 {
     "${LCOV_PATH}/genhtml" --output-directory . ${LCOV_INFO}
-    open index.html
+    # open index.html
 }
 
 remove_old_report
